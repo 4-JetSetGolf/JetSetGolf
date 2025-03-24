@@ -1,6 +1,6 @@
 const client = require('./client.cjs');
 
-const createGolfCourses = async () =>{
+const createLocations = async () =>{
   try{
 
   }catch(err){
@@ -10,5 +10,5 @@ const createGolfCourses = async () =>{
 
 
 module.exports = {
-createGolfCourses
-}
+createLocations
+};
