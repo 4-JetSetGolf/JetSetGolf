@@ -1,11 +1,12 @@
-const { getCourses } = require('./db/courses.cjs');
-const { getHotels } = require('./db/hotels.cjs');
-const { getLocations } = require('./db/location.cjs');
-const { getRestaurants } = require('./db/restaurants.cjs');
-const { getUsers } = require('./db/users.cjs');
-const client = require('./db/client.cjs'); 
+// const { getCourses } = require('./db/courses.cjs');
+// const { getHotels } = require('./db/hotels.cjs');
+// const { getLocations } = require('./db/location.cjs');
+// const { getRestaurants } = require('./db/restaurants.cjs');
+// const { getUsers } = require('./db/users.cjs');
 
-client.connect();
+// const client = require('./db/client.cjs'); 
+
+// client.connect();
 
 const express = require(`express`);
 const app = express();
