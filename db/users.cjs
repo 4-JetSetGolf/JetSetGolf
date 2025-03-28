@@ -1,11 +1,14 @@
 const client = require('./client.cjs');
 
-const createUsers = async (userEmail, userPassword, userCityID, userID) =>{
+const createUsers = async (userEmail, userPassword, userVisitedCities) =>{
   try{
-    await client.query(`
-      INSERT INTO users (name)
-      VALUES ('${userEmail}', '${userPassword}', '${userCityID}', '${userID}');
-      `);
+    const {rows } = await client.query(`
+      INSERT INTO users (email, password, visited_locations)
+      VALUES ('${userEmail}', '${userPassword}', '${userVisitedCities}')
+      RETURNING *`);
+
+      return rows[0];
+
   }catch(err) {
     console.log(err);
   }
@@ -13,10 +16,11 @@ const createUsers = async (userEmail, userPassword, userCityID, userID) =>{
 
 const getUsers = async() => {
   try {
-    const x = await client.query(`
+    const {rows:users} = await client.query(`
       SELECT * FROM users;
       `);
-    console.log(x);
+    return users;
+
   } catch(err) {
     console.log(err);
   }

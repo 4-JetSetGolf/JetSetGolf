@@ -1,11 +1,14 @@
 const client = require('./client.cjs');
 
-const createHotels = async(hotelName, hotelCityID, hotelID) => {
+const createHotels = async(hotelName, hotelAddress, hotelCityID) => {
   try {
-    await client.query(`
-      INSERT INTO hotels (name)
-      VALUES ('${hotelName}', '${hotelCityID}', '${hotelID}');
-      `);
+    const {rows } = await client.query(`
+      INSERT INTO hotels (name, address, location_id)
+      VALUES ('${hotelName}', '${hotelAddress}','${hotelCityID}')
+      RETURNING *`);
+
+      return rows[0];
+      
   }catch(err) {
     console.log(err);
   }
@@ -13,10 +16,11 @@ const createHotels = async(hotelName, hotelCityID, hotelID) => {
 
 const getHotels = async() => {
   try {
-    const x = await client.query(`
+    const {rows:hotels} = await client.query(`
       SELECT * FROM hotels;
       `);
-    console.log(x);
+      return hotels;
+   
   } catch(err) {
     console.log(err);
   }
