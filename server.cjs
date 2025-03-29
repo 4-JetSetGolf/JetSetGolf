@@ -20,7 +20,6 @@ app.get(`/`, (req, res, next) => {
 
 app.get('/api/v1/locations', async(req, res, next) => {
     const allLocations = await getLocations();
-    console.log(allLocations);
     res.send(allLocations);
 });
 
