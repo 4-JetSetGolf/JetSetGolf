@@ -17,7 +17,7 @@ const createLocations = async (locationCity) => {
 const getLocations = async() => {
   try {
     const { rows:cities } = await client.query(`
-      SELECT * FROM locations;
+      SELECT * FROM location;
       `);
       return cities;
       
