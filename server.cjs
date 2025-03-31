@@ -3,10 +3,14 @@
 // const { getLocations } = require('./db/location.cjs');
 // const { getRestaurants } = require('./db/restaurants.cjs');
 // const { getUsers } = require('./db/users.cjs');
+// const { getExistingUser } = require('./db/users.cjs');
+// const { getUserByToken } = require('./db/users.cjs');
 
 // const client = require('./db/client.cjs'); 
 
 // client.connect();
+
+require('dotenv').config(); //must be at the top of server file
 
 const express = require(`express`);
 const app = express();
