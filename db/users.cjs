@@ -1,5 +1,6 @@
 const client = require('./client.cjs');
 
+
 const createUsers = async (userEmail, userPassword, userVisitedCities) =>{
   try{
     const {rows } = await client.query(`
