@@ -1,3 +1,4 @@
+require('dotenv').config();
 const client = require('./client.cjs');
 const { createGolfCourses } = require('./courses.cjs'); 
 const { createHotels } = require('./hotels.cjs');
