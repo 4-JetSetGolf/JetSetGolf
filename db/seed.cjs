@@ -51,7 +51,7 @@ try{
     CREATE TABLE users(
     id SERIAL PRIMARY KEY,
     email VARCHAR(30) NOT NULL,
-    password VARCHAR(30) NOT NULL,
+    password VARCHAR(60) NOT NULL,
     visited_locations INTEGER REFERENCES location(id));
     `)
 

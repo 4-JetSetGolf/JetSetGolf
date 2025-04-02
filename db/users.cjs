@@ -28,12 +28,14 @@ const getUsers = async()=>{
 }
 
 const getExistingUser = async(inputEmail, InputPassword) => {
-  try {
-    const {rows} = await client.query(`
+  
+    const { rows } = await client.query(`
       SELECT * FROM users
-      WHERE username='${inputEmail}';
+      WHERE email='${inputEmail}';
       `);
     const user = rows[0];
+
+    
 
     if(!user){
       throw Error(`Username and Password do not match`);
@@ -49,10 +51,6 @@ const getExistingUser = async(inputEmail, InputPassword) => {
         throw Error(`Username and Password do not match`);
       }
     }
-
-  } catch(err) {
-    console.log(err);
-  }
 }
 
 const getUserByToken = async (token) =>{
