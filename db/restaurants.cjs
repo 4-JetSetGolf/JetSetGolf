@@ -1,11 +1,14 @@
 const client = require('./client.cjs');
 
-const createRestaurants = async (restaurantCityID, restaurantName, restaurantType, restaurantID) =>{
+const createRestaurants = async (restaurantName, restaurantAddress, restaurantCuisine, restaurantCityId) =>{
   try{
-    await client.query(`
-      INSERT INTO restaurants (name)
-      VALUES ('${restaurantCityID}', '${restaurantName}', '${restaurantType}', '${restaurantID}');
-      `);
+    const { rows } = await client.query(`
+      INSERT INTO restaurants (name, address, cuisine, location_id)
+      VALUES ('${restaurantName}', '${restaurantAddress}', '${restaurantCuisine}', '${restaurantCityId}')
+      RETURNING *`);
+
+      return rows[0];
+
   }catch(err) {
     console.log(err);
   }
@@ -13,10 +16,10 @@ const createRestaurants = async (restaurantCityID, restaurantName, restaurantTyp
 
 const getRestaurants = async() => {
   try {
-    const x = await client.query(`
+    const {rows:restaurants} = await client.query(`
       SELECT * FROM restaurants;
       `);
-    console.log(x);
+      return restaurants;
   } catch(err) {
     console.log(err);
   }

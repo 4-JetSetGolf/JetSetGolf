@@ -1,11 +1,14 @@
 const client = require('./client.cjs');
 
-const createLocations = async (locationCity, locationID) => {
+const createLocations = async (locationCity) => {
   try {
-    await client.query(`
+    const {rows } = await client.query(`
       INSERT INTO location (name)
-      VALUES ('${locationCity}', '${locationID}');
-      `);
+      VALUES ('${locationCity}')
+      RETURNING *`);
+
+      return rows[0];
+
   }catch(err) {
     console.log(err);
   }
@@ -13,10 +16,11 @@ const createLocations = async (locationCity, locationID) => {
 
 const getLocations = async() => {
   try {
-    const x = await client.query(`
-      SELECT * FROM locations;
+    const { rows:cities } = await client.query(`
+      SELECT * FROM location;
       `);
-    console.log(x);
+      return cities;
+      
   } catch(err) {
     console.log(err);
   }

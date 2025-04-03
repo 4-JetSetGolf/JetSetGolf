@@ -1,11 +1,13 @@
 const client = require('./client.cjs');
 
-const createGolfCourses = async (courseName, courseLengthOfHoles, courseCityID, courseID) => {
+const createGolfCourses = async (courseName, courseAddress, courseLengthOfHoles, courseCityID) => {
   try {
-    await client.query(`
-      INSERT INTO courses (name)
-      VALUES ('${courseName}', '${courseLengthOfHoles}', '${courseCityID}', '${courseID}');
-      `);
+    const { rows } = await client.query(`
+      INSERT INTO golf_courses (name, address, course_length, location_id)
+      VALUES ('${courseName}','${courseAddress}', '${courseLengthOfHoles}', '${courseCityID}')
+      RETURNING *`);
+
+      return rows[0];
   }catch(err) {
     console.log(err);
   }
@@ -13,10 +15,10 @@ const createGolfCourses = async (courseName, courseLengthOfHoles, courseCityID, 
 
 const getCourses = async() => {
   try {
-    const x = await client.query(`
-      SELECT * FROM courses;
+    const { rows:courses } = await client.query(`
+      SELECT * FROM golf_courses;
       `);
-    console.log(x);
+      return courses;
   } catch(err) {
     console.log(err);
   }
