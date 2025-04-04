@@ -19,6 +19,18 @@ app.get(`/`, (req, res, next) => {
    res.sendFile(__dirname + `/dist/index.html`);
 })
 
+app.get(`/courses`, (req, res, next) => {
+    res.sendFile(__dirname + `/dist/index.html`);
+ })
+
+ app.get(`/locations`, (req, res, next) => {
+    res.sendFile(__dirname + `/dist/index.html`);
+ })
+
+ app.get(`/account`, (req, res, next) => {
+    res.sendFile(__dirname + `/dist/index.html`);
+ })
+
 app.get('/api/v1/locations', async(req, res, next) => {
     const allLocations = await getLocations();
     res.send(allLocations);
