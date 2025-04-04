@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Routes, Route} from 'react-router-dom'
 import LoginForm from "./LoginForm.jsx";
 import NavBar from "./NavBar.jsx";
+import Cities from './Cities.jsx';
+import Courses from 
 
 
 function App() {
