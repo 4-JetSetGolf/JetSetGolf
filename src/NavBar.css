@@ -1,0 +1,26 @@
+nav {
+    list-style-type: none;
+    margin: 5px;
+    padding: 5px;
+    overflow: hidden;
+    background-color: darkgreen;
+  }
+  
+a {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-decoration: none;
+    font-size: 20px;
+    background-color: darkgreen;
+    color: black;
+    padding: 5px;
+    margin: 5px;
+    
+  }
+
+  a:hover{
+    background-color: tan;
+  }
+
+
+
+  
