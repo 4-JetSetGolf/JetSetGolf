@@ -15,22 +15,6 @@ const app = express();
 app.use(express.static(`dist`));
 app.use(express.json());
 
-app.get(`/`, (req, res, next) => {
-   res.sendFile(__dirname + `/dist/index.html`);
-})
-
-app.get(`/courses`, (req, res, next) => {
-    res.sendFile(__dirname + `/dist/index.html`);
- })
-
- app.get(`/locations`, (req, res, next) => {
-    res.sendFile(__dirname + `/dist/index.html`);
- })
-
- app.get(`/account`, (req, res, next) => {
-    res.sendFile(__dirname + `/dist/index.html`);
- })
-
 app.get('/api/v1/locations', async(req, res, next) => {
     const allLocations = await getLocations();
     res.send(allLocations);
@@ -80,6 +64,11 @@ app.post('/api/v1/login', async(req, res, next) => {
 //       next(err);
 //     }
 //   });
+
+app.get(`/*`, (req, res, next) => {
+    res.sendFile(__dirname + `/dist/index.html`);
+ })
+ 
 
 const PORT = process.env.PORT || 3000;
 
