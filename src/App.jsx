@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Routes, Route} from 'react-router-dom'
 import LoginForm from "./LoginForm.jsx";
 import NavBar from "./NavBar.jsx";
+import AllHotels from "./components/AllHotels.jsx"
 
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
 
         
         <Routes>
-          <Route path= '/' element ={<h1>home</h1>} />
+          <Route path= '/hotels' element ={<AllHotels />} />
+          {/* <Route path= '/hotels/:id' element ={<Hotel />} /> */}
           <Route path= '/login' element ={<LoginForm />} />
           <Route path= '/cities' element ={<h1>Cities</h1>} />
           <Route path= '/courses' element ={<h1>Courses</h1>} />
