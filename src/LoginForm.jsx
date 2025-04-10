@@ -12,7 +12,7 @@ export default function LoginForm() {
   const createUser = async (event) => {
     event.preventDefault();
 
-    const response = await fetch("api/v1/users", {
+    const response = await fetch("URL or API Here", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -33,7 +33,7 @@ export default function LoginForm() {
     event.preventDefault();
 
     try {
-      const response = await fetch(`api/v1/users/auth/login`, {
+      const response = await fetch(`URL or API Here/v1/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
