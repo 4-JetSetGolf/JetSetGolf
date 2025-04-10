@@ -11,9 +11,12 @@ const { getUsers, getExistingUser, getUserByToken } = require('./db/users.cjs');
 
 const express = require(`express`);
 const app = express();
+const cors = require('cors');
+
 
 app.use(express.static(`dist`));
 app.use(express.json());
+app.use(cors({origin:["http://localhost:5173"]}))
 
 app.get(`/`, (req, res, next) => {
    res.sendFile(__dirname + `/dist/index.html`);
