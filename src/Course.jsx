@@ -10,7 +10,7 @@ const Course = (props) => {
         const fetchSingleCourse = async () => {
           try {
             const response = await fetch(
-              `/api/v1/courses/${id}`
+              `http://localhost:3000/api/v1/courses/${id}`
             );
             const data = await response.json();
             setSingleCourse(data.Course);

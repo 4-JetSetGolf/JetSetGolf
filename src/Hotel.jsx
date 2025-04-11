@@ -10,7 +10,7 @@ const Hotel = (props) => {
         const fetchSingleHotel = async () => {
           try {
             const response = await fetch(
-              `/api/v1/Hotels/${id}`
+              `http://localhost:3000/api/v1/Hotels/${id}`
             );
             const data = await response.json();
             setSingleHotel(data.Hotels);

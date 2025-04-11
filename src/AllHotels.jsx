@@ -31,7 +31,7 @@ const AllHotels = () => {
             <article
               key={hotel.id}
               className="book-card"
-              onClick={() => navigate(`/hotels/${hotels.id}`)}
+              onClick={() => navigate(`/hotels/${hotel.id}`)}
             >
               <h3>{hotel.name}</h3>
 

@@ -6,9 +6,9 @@ const Cities = () => {
   useEffect(()=>{
    try{
       const getCityNames = async () =>{
-      const response = await fetch(`/api/v1/locations`);
+      const response = await fetch(`http://localhost:3000/api/v1/locations`);
       const allCities = await response.json();
-      setCityNames(allCities);  
+      setCityNames(allCities);
     }
     getCityNames();
   }catch(err){
