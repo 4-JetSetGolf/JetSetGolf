@@ -10,7 +10,7 @@ const AllCourses = () => {
         const fetchHotels = async () => {
           try {
             const response = await fetch(
-              "/api/v1/courses"
+              "http://localhost:3000/api/v1/courses"
             );
             const data = await response.json();
             setCourses(data);
