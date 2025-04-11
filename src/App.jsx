@@ -7,6 +7,7 @@ import AllHotels from "./AllHotels.jsx"
 
 import Cities from './Cities.jsx';
 import Restaurants from "./restaurants.jsx";
+import AllCourses from "./AllCourses.jsx";
 
 
 
@@ -23,7 +24,7 @@ function App(){
           <Route path= '/login' element ={<LoginForm />} />
           <Route path= '/hotels' element ={<AllHotels />} />
           <Route path= '/locations' element ={<Cities />} />
-          <Route path= '/courses' element ={<h1>Courses</h1>} />
+          <Route path= '/courses' element ={<AllCourses />} />
           <Route path= '/account' element ={<h1>Account</h1>} />
           <Route path= '/restaurants' element ={<Restaurants />} />
         </Routes>

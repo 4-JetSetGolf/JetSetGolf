@@ -7,40 +7,42 @@ const AllCourses = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        const fetchHotels = async () => {
-          try {
+         try {
+            const fetchHotels = async () => {
             const response = await fetch(
-              "/api/v1/courses"
+              '/api/v1/courses'
             );
             const data = await response.json();
             setCourses(data);
-          } catch (err) {
+          } 
+          fetchHotels();
+        }catch(err){
             console.error(err);
-          }
         };
-        fetchHotels();
       }, []);
+
       if (courses.length === 0) {
         return <p>No hotels to show...</p>;
       }
       return (
         <>
-        <h1> Courses </h1>
+        <h1> All Courses </h1>
       <div id="courses">
-      {courses.map((course) => {
+      <ul>{courses.map((singleCourse) => {
         return (
-          <article key={course.id} className="book-card" onClick={ () => navigate(`/courses/${course.id}`)}>
+          <li key={singleCourse.id} className="book-card">
             
-            <h3>{course.name}</h3>
+            <h3>{singleCourse.name}</h3>
+            <h3>{singleCourse.address}</h3>
+            <h3>Length of Course: {singleCourse.course_length}</h3>
             
-            
-            <p>{course.location_id}</p>
-          </article>
+          </li>
         );
       })}
+      </ul>
       </div>
         
         </>
-      )
+      );
 }
 export default AllCourses;

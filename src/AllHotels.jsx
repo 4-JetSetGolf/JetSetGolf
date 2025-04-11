@@ -34,8 +34,8 @@ const AllHotels = () => {
               onClick={() => navigate(`/hotels/${hotels.id}`)}
             >
               <h3>{hotel.name}</h3>
+              <h3>{hotel.address}</h3>
 
-              <p>{hotel.location_id}</p>
             </article>
           );
         })}
