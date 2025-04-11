@@ -6,6 +6,7 @@ import NavBar from "./NavBar.jsx";
 import AllHotels from "./AllHotels.jsx"
 import AllCourses from "./AllCourses.jsx"
 import Hotel from "./Hotel.jsx"
+import Course from "./Course.jsx"
 
 import Cities from './Cities.jsx';
 import Restaurants from "./restaurants.jsx";
