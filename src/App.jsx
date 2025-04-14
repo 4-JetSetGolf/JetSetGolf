@@ -16,7 +16,7 @@ function App(){
     return (
       <>
         <NavBar />
-        <h1>Welcome to JetSetGolf</h1>
+        {/* <h1>Welcome to JetSetGolf</h1> */}
 
         
         <Routes>
