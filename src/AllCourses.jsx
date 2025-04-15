@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from "react";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import "./course.css"
 
 
 const AllCourses = () => {
@@ -8,41 +9,36 @@ const AllCourses = () => {
 
     useEffect(() => {
          try {
-            const fetchHotels = async () => {
+            const fetchCourses = async () => {
             const response = await fetch(
-              '/api/v1/courses'
+              'http://localhost:3000/api/v1/courses'
             );
             const data = await response.json();
+            console.log(data);
             setCourses(data);
           } 
-          fetchHotels();
+          fetchCourses();
         }catch(err){
             console.error(err);
         };
       }, []);
-
-      if (courses.length === 0) {
-        return <p>No hotels to show...</p>;
-      }
-      return (
-        <>
-        <h1> All Courses </h1>
+console.log(courses);
+return (
+  <>
+      <h1>Golf Courses</h1>
       <div id="courses">
-      <ul>{courses.map((singleCourse) => {
-        return (
-          <li key={singleCourse.id} className="book-card">
-            
-            <h3>{singleCourse.name}</h3>
-            <h3>{singleCourse.address}</h3>
-            <h3>Length of Course: {singleCourse.course_length}</h3>
-            
-          </li>
-        );
-      })}
-      </ul>
+          <ul>
+              {courses &&
+                  courses.map((singleCourse) => (
+                      <li key={singleCourse.id} className="Golf-Course">
+                          <h3>Name: {singleCourse.name}</h3>
+                          <h3>Address: {singleCourse.address}</h3>
+                          <h3>Length of Course: {singleCourse.course_length}</h3>
+                      </li>
+                  ))}
+          </ul>
       </div>
-        
-        </>
-      );
+  </>
+);
 }
 export default AllCourses;
