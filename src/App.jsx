@@ -8,6 +8,32 @@ import AllHotels from "./AllHotels.jsx";
 import Cities from "./Cities.jsx";
 import Restaurants from "./restaurants.jsx";
 import AllCourses from "./AllCourses.jsx";
+
+
+
+
+function App(){
+
+    return (
+      <>
+        <NavBar />
+        {/* <h1>Welcome to JetSetGolf</h1> */}
+
+        
+        <Routes>
+          <Route path= '/' element ={<h1>home</h1>} />
+          <Route path= '/login' element ={<LoginForm />} />
+          <Route path= '/hotels' element ={<AllHotels />} />
+          <Route path= '/locations' element ={<Cities />} />
+          <Route path= '/courses' element ={<AllCourses />} />
+          <Route path= '/account' element ={<h1>Account</h1>} />
+          <Route path= '/restaurants' element ={<Restaurants />} />
+        </Routes>
+
+      </>
+    );
+  };
+
 import "./Styles.css";
 
 
@@ -37,4 +63,5 @@ function App() {
     </>
   );
 }
+
 export default App;
