@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./restaurants.css"
 
 const Restaurants = () => {
   const [restaurantNames, setRestaurantNames] = useState ([]);
@@ -19,7 +20,7 @@ const Restaurants = () => {
   console.log(restaurantNames);
 
  return (
-  <>
+  <div id = "restaurants">
     <ul>
       {restaurantNames.map((singleRestaurantName)=>{
         return(
@@ -32,7 +33,7 @@ const Restaurants = () => {
         )
       })}
     </ul>
-  </>
+  </div>
  );
 
 };
