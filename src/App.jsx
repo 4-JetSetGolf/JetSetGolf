@@ -11,30 +11,6 @@ import AllCourses from "./AllCourses.jsx";
 import UserDetails from "./user-details.jsx";
 
 
-
-
-function App(){
-
-    return (
-      <>
-        <NavBar />
-        {/* <h1>Welcome to JetSetGolf</h1> */}
-
-        
-        <Routes>
-          <Route path= '/' element ={<h1>home</h1>} />
-          <Route path= '/login' element ={<LoginForm />} />
-          <Route path= '/hotels' element ={<AllHotels />} />
-          <Route path= '/locations' element ={<Cities />} />
-          <Route path= '/courses' element ={<AllCourses />} />
-          <Route path= '/account' element ={<UserDetails />} />
-          <Route path= '/restaurants' element ={<Restaurants />} />
-        </Routes>
-
-      </>
-    );
-  };
-
 import "./Styles.css";
 
 
@@ -45,12 +21,12 @@ function App() {
       <h1>Welcome to JetSetGolf</h1>
 
       <Routes>
-        <Route path="/" element={<h1>home</h1>} />
+        <Route path="/" element={<img id="logo" src="src/logo_2.png" alt="logo"/>} />
         <Route path="/login" element={<LoginForm />} />
         <Route path="/hotels" element={<AllHotels />} />
         <Route path="/locations" element={<Cities />} />
         <Route path="/courses" element={<AllCourses />} />
-        <Route path="/account" element={<h1>Account</h1>} />
+        <Route path="/account" element={<UserDetails/>} />
         <Route path="/restaurants" element={<Restaurants />} />
       </Routes>
 
